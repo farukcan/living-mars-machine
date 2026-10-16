@@ -168,7 +168,10 @@ and writes one PNG per type to `docs/buildings`, which is how a geometry change 
 against the concept art. The studio holds the glow mask at a dusk value rather than full
 night: at full night every window and status board blows out to flat white and the render
 stops being a useful reference. `npm run render:trailer` records a WebM of the live colony
-into `media/trailer.webm`; it is opt-in and is not part of the e2e suite.
+into `media/trailer.webm`; it is opt-in and is not part of the e2e suite. `npm run
+render:crazygames` captures the CrazyGames covers and preview videos into `media/crazygames/`
+from the production build, on the GPU under a frozen clock, and checks them against the portal's
+requirements before writing.
 
 **Merging requires identical attribute sets.** The hand-built geodesic shell has no UVs, so
 `assemble` strips UVs from every part before merging. Nothing here is textured; this is both

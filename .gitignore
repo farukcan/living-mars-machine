@@ -8,3 +8,4 @@ dist-ssr
 playwright-report
 test-results
 media/*.webm
+media/crazygames/*.mp4

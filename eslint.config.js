@@ -16,7 +16,8 @@ export default tseslint.config(
     },
   },
   {
-    // The logo generator is a Node script, not browser code.
+    // Media scripts run in Node, not the browser; code they hand to page.evaluate declares
+    // its browser globals itself.
     files: ['media/**/*.mjs'],
     languageOptions: { globals: { process: 'readonly', console: 'readonly' } },
   },

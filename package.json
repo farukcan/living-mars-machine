@@ -17,7 +17,8 @@
     "test:e2e": "playwright test",
     "render:buildings": "playwright test e2e/generate-buildings.spec.ts",
     "render:logo": "node media/generate-logo.mjs",
-    "render:trailer": "RENDER_TRAILER=1 playwright test e2e/marketing.spec.ts --workers=1"
+    "render:trailer": "RENDER_TRAILER=1 playwright test e2e/marketing.spec.ts --workers=1",
+    "render:crazygames": "node media/render-crazygames.mjs"
   },
   "type": "module",
   "dependencies": {
