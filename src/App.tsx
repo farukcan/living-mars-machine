@@ -18,10 +18,12 @@ import { TopBar } from './ui/TopBar.tsx';
 import { TutorialCard } from './ui/tutorial/TutorialCard.tsx';
 import { startTutorialWatcher } from './ui/tutorial/watcher.ts';
 import { COLUMN_WIDTH } from './ui/panel.ts';
+import { hudLayerStyle, useUiScale } from './ui/uiScale.ts';
 
 export function App() {
   const params = new URLSearchParams(window.location.search);
   const studioBuilding = params.get('building') as StudioBuildingKind | null;
+  const uiScale = useUiScale();
 
   // One rAF chain for the lifetime of the app; the loop owns simulation cadence. The
   // tutorial watcher rides the snapshots that loop publishes, so the two share a lifetime.
@@ -66,8 +68,13 @@ export function App() {
       {/* The HUD is a stack of full-width rows, not a pile of hand-placed layers: the
           readout strip, a middle band that takes whatever is left, and the build bar.
           Nothing is offset by a hardcoded `top-*`, so a strip that wraps onto a second line
-          pushes everything below it down instead of being covered. */}
-      <div className="pointer-events-none absolute inset-0 flex flex-col">
+          pushes everything below it down instead of being covered. The whole stack is laid
+          out at a reference resolution and scaled as one piece (see uiScale.ts), so a small
+          portal iframe shows the same composition as a desktop window. */}
+      <div
+        className="pointer-events-none absolute left-0 top-0 flex origin-top-left flex-col"
+        style={hudLayerStyle(uiScale)}
+      >
         <TopBar />
 
         <div className="flex min-h-0 flex-1 gap-2 p-3">
@@ -99,8 +106,12 @@ export function App() {
             <div className="my-auto w-full">
               <QuestPanel />
             </div>
-            <HoverCard />
-            <div className="pointer-events-auto w-full">
+            <div className="pointer-events-auto relative flex min-h-0 w-full flex-col">
+              {/* The hover readout floats just above the reserves instead of taking a row,
+                  so pointing at a building never resizes the column. */}
+              <div className="pointer-events-none absolute bottom-full mb-2 w-full">
+                <HoverCard />
+              </div>
               <Sparkline />
             </div>
           </div>

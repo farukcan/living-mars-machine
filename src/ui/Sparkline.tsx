@@ -77,7 +77,11 @@ export function Sparkline() {
   );
 
   return (
-    <div className={`w-full p-2.5 ${PANEL}`}>
+    // A column so the chart is the part that gives way in a short window: the trace shrinks
+    // first (the viewBox already stretches), down to nothing in the smallest portal iframe,
+    // while the label and the readings stay whole. Past that the card clips rather than
+    // letting its text spill onto the build bar.
+    <div className={`flex min-h-0 w-full flex-col overflow-hidden p-2.5 ${PANEL}`}>
       <div className="mb-1 flex items-baseline justify-between">
         <span className="text-[10px] uppercase tracking-wider text-white/50">Reserves</span>
         <span className="text-[10px] text-white/35">{historyLabel(history.length)}</span>
@@ -85,7 +89,7 @@ export function Sparkline() {
 
       <svg
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-        className="h-[58px] w-full"
+        className="h-[58px] min-h-0 w-full"
         preserveAspectRatio="none"
         aria-hidden
       >
