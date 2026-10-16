@@ -16,7 +16,8 @@
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "render:buildings": "playwright test e2e/generate-buildings.spec.ts",
-    "render:logo": "node media/generate-logo.mjs"
+    "render:logo": "node media/generate-logo.mjs",
+    "render:trailer": "RENDER_TRAILER=1 playwright test e2e/marketing.spec.ts --workers=1"
   },
   "type": "module",
   "dependencies": {

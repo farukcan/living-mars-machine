@@ -77,7 +77,9 @@ export function Onboarding() {
   if (!visible) return null;
 
   return (
-    <div className="pointer-events-auto w-full rounded-lg border border-[#4FC3F7]/30 bg-black/55 p-3 shadow-lg shadow-black/40 backdrop-blur-sm">
+    // Capped at the column and scrolled like the inspector, so in a short window it never
+    // paints over the build bar.
+    <div className="pointer-events-auto max-h-full w-full overflow-y-auto rounded-lg border border-[#4FC3F7]/30 bg-black/55 p-3 shadow-lg shadow-black/40 backdrop-blur-sm">
       <div className="flex items-start gap-2">
         {/* The tagline-free lockup: at this width the tagline would only be texture. */}
         <img src={logoLockup} alt="Living Mars Machine" className="min-w-0 flex-1" />
