@@ -44,18 +44,19 @@ npm run dev          # http://localhost:5173
 
 ## Commands
 
-| Command                                             | What it does                                         |
-| --------------------------------------------------- | ---------------------------------------------------- |
-| `npm run dev`                                       | Vite dev server with HMR                             |
-| `npm run build`                                     | Type-check, then production build                    |
-| `npm run preview`                                   | Serve the production build locally                   |
-| `npm run typecheck`                                 | `tsc --noEmit`                                       |
-| `npm run lint`                                      | ESLint, including the `src/sim` isolation rules      |
-| `npm run test:e2e -- --grep "reference screenshot"` | Regenerate the screenshots in `docs/`                |
-| `npm test`                                          | Vitest — simulation core                             |
-| `npm run test:e2e`                                  | Playwright — renders and interacts with the real app |
-| `npm run format`                                    | Prettier over source and docs                        |
-| `npm run render:logo`                               | Regenerate the procedural logo in `media/`           |
+| Command                                             | What it does                                              |
+| --------------------------------------------------- | --------------------------------------------------------- |
+| `npm run dev`                                       | Vite dev server with HMR                                  |
+| `npm run build`                                     | Type-check, then production build                         |
+| `npm run preview`                                   | Serve the production build locally                        |
+| `npm run typecheck`                                 | `tsc --noEmit`                                            |
+| `npm run lint`                                      | ESLint, including the `src/sim` isolation rules           |
+| `npm run test:e2e -- --grep "reference screenshot"` | Regenerate the screenshots in `docs/`                     |
+| `npm test`                                          | Vitest — simulation core                                  |
+| `npm run test:e2e`                                  | Playwright — renders and interacts with the real app      |
+| `npm run format`                                    | Prettier over source and docs                             |
+| `npm run render:logo`                               | Regenerate the procedural logo in `media/`                |
+| `npm run render:trailer`                            | Record a WebM marketing capture into `media/trailer.webm` |
 
 ## Measured Cost
 

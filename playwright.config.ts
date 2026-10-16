@@ -15,6 +15,8 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
   reporter: process.env.CI ? 'github' : 'list',
+  // The trailer is a capture job, not a behaviour check. `npm run render:trailer` opts in.
+  testIgnore: process.env.RENDER_TRAILER === '1' ? [] : [/marketing\.spec\.ts/],
   use: {
     baseURL: `http://localhost:${PORT}`,
     trace: 'on-first-retry',
